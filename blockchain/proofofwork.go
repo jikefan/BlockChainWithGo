@@ -23,7 +23,7 @@ func (b *Block) GetTarget() []byte {
 func (b *Block) GetBase4Nonce(nonce int64) []byte {
 	data := bytes.Join([][]byte{
 		b.PrevHash,
-		b.Data,
+		b.BackTransactionSummary(),
 		utils.ToHexInt(b.Timestamp),
 		b.GetTarget(),
 		utils.ToHexInt(nonce),
